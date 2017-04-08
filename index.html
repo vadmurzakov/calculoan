@@ -10,33 +10,76 @@
     <!-- Bootstrap -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/datepicker.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/plugins/ion.rangeSlider/css/ion.rangeSlider.css">
+    <link rel="stylesheet" href="./assets/plugins/ion.rangeSlider/css/ion.rangeSlider.skinNice.css">
     <link href="./assets/css/prettify.css" rel="stylesheet">
+    <link href="./assets/css/main.css" rel="stylesheet">
 <body>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="./assets/js/third/jquery-3.1.1.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="./assets/js/third/bootstrap.min.js"></script>
-<script src="./assets/js/third/bootstrap-datepicker.js"></script>
-<script src="./assets/js/third/bootstrap-datepicker.ru.js"></script>
-<script src="./assets/js/third/prettify.js"></script>
-<script src="./assets/js/calcEffectivePercent.js"></script>
-<script src="./assets/js/calculation.js"></script>
-<script src="./assets/js/lookAndFeel.js"></script>
-<script src="./assets/js/ga.js"></script>
+<div class="site-wrapper">
 
-<script type="text/javascript">
-    document.addEventListener( 'DOMContentLoaded', function ()
-    {
-        setGetParameters();
-    }, false );
+    <div class="site-wrapper-inner">
+        <!--todo вынести в файл-->
+        <div class="container" style="background: #666">
 
-    function computeAndShow()
-    {
-        computeAndShowCard();
-    }
-</script>
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand">Кредит наличными - просто и быстро!</h3>
+                </div>
+            </div>
 
+            <div class="inner cover">
+                <!--begin .row-->
+                <div class="row">
+                    <!--begin .col-md-6-->
+                    <div class="col-md-6">
+                        <h3>Калькулятор кредитной карты</h3>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Сумма">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" id="total_sum" name="total_sum" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="annual_rate" class="col-md-6 control-label">Годовая ставка, %
+                                <div class="col-md-6">
+                                    <input type="text" id="annual_rate" name="annual_rate" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Ежемесячный платеж">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" id="monthly_payment" name="monthly_payment" value="" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--end .col-md-6 -->
+                    <!--begin .col-md-6-->
+                    <div class="col-md-6">
+                        <h3>Кол-во платежей:</h3>
+                    </div>
+                    <!--end .col-md-6 -->
+                </div>
+                <!--end .row -->
+            </div> <!--/.inner cover-->
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <div class="col-sm-1">
     <label for="amount">
@@ -72,14 +115,13 @@
 
     </div>
     <script type="text/javascript">
-        $( function ()
-        {
-            $( '#dploanStartDate' ).datepicker( {
+        $(function () {
+            $('#dploanStartDate').datepicker({
                 autoclose: true,
                 language: "ru",
                 weekStart: 1
-            } );
-        } );
+            });
+        });
     </script>
 </div>
 
@@ -93,14 +135,13 @@
         <span class="add-on"></span>
     </div>
     <script type="text/javascript">
-        $( function ()
-        {
-            $( '#dpfirstPaymentDate' ).datepicker( {
+        $(function () {
+            $('#dpfirstPaymentDate').datepicker({
                 autoclose: true,
                 language: "ru",
                 weekStart: 1
-            } );
-        } );
+            });
+        });
     </script>
 </div>
 <br/>
@@ -161,10 +202,9 @@
     </div>
 </div>
 <script type="text/javascript">
-    function copyDirectLink()
-    {
-        document.getElementById( "directLinkEx" ).select();
-        document.execCommand( 'copy' );
+    function copyDirectLink() {
+        document.getElementById("directLinkEx").select();
+        document.execCommand('copy');
     }
 </script>
 <br/>
@@ -212,6 +252,55 @@
     </div>
 </div>
 
-</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="./assets/js/third/jquery-3.1.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./assets/js/third/bootstrap.min.js"></script>
+<script src="./assets/js/third/bootstrap-datepicker.js"></script>
+<script src="./assets/js/third/bootstrap-datepicker.ru.js"></script>
+<script src="./assets/plugins/ion.rangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
+<script src="./assets/js/third/prettify.js"></script>
+<script src="./assets/js/calcEffectivePercent.js"></script>
+<script src="./assets/js/calculation.js"></script>
+<script src="./assets/js/lookAndFeel.js"></script>
+<script src="./assets/js/ga.js"></script>
 
+
+<!--todo вынести в отдельный файл-->
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        setGetParameters();
+    }, false);
+
+    function computeAndShow() {
+        computeAndShowCard();
+    }
+    $("#total_sum").ionRangeSlider({
+        grid: true,
+        min: 10000,
+        max: 300000,
+        from: 155000,
+        step: 1000,
+        prettify_enabled: true
+    });
+    $("#annual_rate").ionRangeSlider({
+        grid: true,
+        min: 13.5,
+        max: 25.5,
+        from: 18.5,
+        step: 0.5,
+        prettify_enabled: true,
+        prettify_separator: "."
+    });
+    $("#monthly_payment").ionRangeSlider({
+        grid: true,
+        min: 3000,
+        max: 80000,
+        from: 41500,
+        step: 1000,
+        prettify_enabled: true
+    });
+</script>
+
+</body>
 </html>

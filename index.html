@@ -37,207 +37,114 @@
                     <!--begin .col-md-6-->
                     <div class="col-md-6">
                         <h3>Калькулятор кредитной карты</h3>
-                        <form class="form-horizontal">
+                        <form action="javascript:void(0)" class="form-horizontal">
                             <div class="form-group">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Сумма">
+                                <div class="col-md-5">
+                                    <input id="amount" type="text" class="form-control" placeholder="Сумма">
                                 </div>
-                                <div class="col-md-6">
-                                    <input type="text" id="total_sum" name="total_sum" value=""/>
+                                <div class="col-md-7">
+                                    <input type="text" id="amountRange" name="amountRange" value=""/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="annual_rate" class="col-md-6 control-label">Годовая ставка, % </label>
-                                <div class="col-md-6">
-                                    <input type="text" id="annual_rate" name="annual_rate" value=""/>
+                                <div class="col-md-5">
+                                    <input id="rate" type="text" class="form-control" placeholder="Годовая ставка, %">
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="rateRange" name="rateRange" value=""/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-5">
+                                    <input id="minPayment" type="text" class="form-control"
+                                           placeholder="Ежемесячный платеж">
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="minPaymentRange" name="minPaymentRange" value=""/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Ежемесячный платеж">
+                                    <div class="input-group"><input id="loanStartDate"
+                                                                    name="loanStartDate"
+                                                                    class="form-control"
+                                                                    placeholder="Начало расчетного периода"
+                                                                    aria-describedby="basic-addon1"> <span
+                                            class="input-group-addon" id="basic-addon1"><i
+                                            class="fa fa-calendar"></i></span></div>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" id="monthly_payment" name="monthly_payment" value=""/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-6">
-                                    <div class="input-group"><input class="form-control"
-                                                                    placeholder="Начало периода"
+                                    <div class="input-group mt-11"><input id="firstPaymentDate"
+                                                                    name="firstPaymentDate"
+                                                                    class="form-control"
+                                                                    placeholder="Дата первого платежа"
                                                                     aria-describedby="basic-addon2"> <span
-                                            class="input-group-addon" id="basic-addon2"><i class="fa fa-calendar"></i></span></div>
+                                            class="input-group-addon" id="basic-addon2"><i
+                                            class="fa fa-calendar"></i></span></div>
                                 </div>
-                                <div class="col-md-6">
-                                    <input type="submit" class="btn btn-danger" value="Рассчитать">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-5 col-md-7">
+                                    <input type="submit" class="btn btn-danger" onclick="computeAndShow()"
+                                           value="Рассчитать">
                                 </div>
                             </div>
                         </form>
-                    </div>
-                    <!--end .col-md-6 -->
+                    </div><!--end .col-md-6 -->
                     <!--begin .col-md-6-->
                     <div class="col-md-6">
-                        <h3>Кол-во платежей:</h3>
-                    </div>
-                    <!--end .col-md-6 -->
-                </div>
-                <!--end .row -->
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4">
+                                <div id="months"><h3>Кол-во платежей: </h3></div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div id="fullCreditCost"><h3>ПСК: </h3></div>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <div id="overpayment"><h3>Переплата: </h3></div>
+                            </div>
+                        </div>
+                        <!--begin .row-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="instalmentTable" class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th><b>#</b></th>
+                                            <th><b>Дата</b></th>
+                                            <th><b>Платеж</b></th>
+                                            <th><b>Проценты</b></th>
+                                            <th><b>Основной долг</b></th>
+                                            <th><b>Остаток долга</b></th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div> <!--/.col-md-12-->
+                        </div> <!--end .row -->
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">Поделиться ссылкой:</div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" onclick="copyDirectLink()"><i class="fa fa-copy"></i></button>
+                                    </span>
+                                    <input id="directLinkEx" readonly="true" type="text" class="form-control"
+                                           placeholder="Прямой линк...">
+                                </div>
+                            </div> <!-- /.col-sm-12 -->
+                        </div> <!-- /.row -->
+                    </div> <!--end .col-md-6 -->
+                </div> <!--end .row -->
             </div> <!--/.inner cover-->
 
-        </div>
+        </div> <!--/.container-->
 
-    </div>
+    </div> <!--/.site-wrapper-inner-->
 
-</div>
+</div> <!--/.site-wrapper-->
 
-<div class="col-sm-1">
-    <label for="amount">
-        Сумма:
-    </label>
-    <br/>
-    <br/>
-    <input id="amount" type="text" value="50 000" class="form-control"
-           onblur="document.getElementById('amount').value = getFormattedSum(document.getElementById('amount').value, 0)"/>
-</div>
-<div class="col-lg-1">
-    <label for="rate">
-        Годовая ставка, %:
-    </label>
-    <input id="rate" type="text" value="29.9" class="form-control"
-           onblur="document.getElementById('rate').value = getFormattedSum(document.getElementById('rate').value, 0)"/>
-</div>
-<div class="col-lg-1">
-    <label for="minPayment">
-        Сумма мин. платежа
-    </label>
-    <input id="minPayment" type="text" value="3 000" class="form-control"
-           onblur="document.getElementById('minPayment').value = getFormattedSum(document.getElementById('minPayment').value, 0)"/>
-</div>
-<div class="col-lg-1">
-    <label for="loanStartDate">
-        Начало расч. периода:
-    </label>
-
-    <div class="input-append date" id="dploanStartDate" data-date="05.04.2017" data-date-format="dd.mm.yyyy">
-        <input id="loanStartDate" type="text" value="05.04.2017" class="form-control" onchange="setPaymentStartDate()">
-        <span class="add-on"></span>
-
-    </div>
-
-</div>
-
-<div class="col-lg-1">
-    <label for="firstPaymentDate">
-        Конец платеж. периода:
-    </label>
-
-    <div class="input-append date" id="dpfirstPaymentDate" data-date="24.05.2017" data-date-format="dd.mm.yyyy">
-        <input id="firstPaymentDate" type="text" class="form-control" value="24.05.2017"/>
-        <span class="add-on"></span>
-    </div>
-
-</div>
-<br/>
-
-<br/>
-<br/>
-<br/>
-<br/>
-<div class="row"><br/></div>
-<div class="row">
-    <div class="form-group">
-        <div class="col-md-3">
-            <input id="addEr" type="button" onclick="addEarlyRepaymentControls()" value="Добавить досрочное погашение"
-                   class="btn btn-sm">
-        </div>
-    </div>
-</div>
-<div class="row"></div>
-<div class="row">
-    <div class="form-group">
-        <div class="col-md-5">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th><b>Сумма</b></th>
-                    <th><b>Дата</b></th>
-                </tr>
-                </thead>
-                <tbody id="dynEr">
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-<div class="row"></div>
-
-<br/>
-<br/>
-
-<div class="col-lg-4">
-    <input id="submit" type="button" onclick="computeAndShow()" value="Рассчитать" class="btn btn-lg">
-</div>
-<br/>
-<br/>
-<br/>
-
-<p>
-
-<div class="col-lg-7">
-    <div class="input-group">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" onclick="copyDirectLink()">Copy</button>
-                </span>
-        <!--suppress HtmlFormInputWithoutLabel -->
-        <input id="directLinkEx" readonly="true" type="text" class="form-control"
-               placeholder="Прямой линк...">
-    </div>
-</div>
-
-<br/>
-<br/>
-<br/>
-
-
-<div class="col-md-7">
-    <table class="table">
-        <tr>
-            <!--<td><b>Аннуитетный платеж:</b></td>-->
-            <td>
-                <div id="months"><b>Кол-во платежей: </b></div>
-            </td>
-            <!--<td><b>ПСК:</b></td>-->
-            <td>
-                <div id="fullCreditCost" class="lead"><b>ПСК: </b></div>
-            </td>
-            <!--<td><b>Переплата:</b></td>-->
-            <td>
-                <div id="overpayment"><b>Переплата: </b></div>
-            </td>
-        </tr>
-    </table>
-</div>
-<br/>
-<br/>
-<br/>
-<br/>
-
-<div class="col-md-12">
-    <div class="table-responsive">
-        <table id="instalmentTable" class="table table-striped">
-            <thead>
-            <tr>
-                <th><b>#</b></th>
-                <th><b>Дата</b></th>
-                <th><b>Платеж</b></th>
-                <th><b>Проценты</b></th>
-                <th><b>Основной долг</b></th>
-                <th><b>Остаток долга</b></th>
-            </tr>
-            </thead>
-        </table>
-    </div>
-</div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="./assets/js/third/jquery-3.1.1.min.js"></script>
@@ -262,7 +169,7 @@
     function computeAndShow() {
         computeAndShowCard();
     }
-    $("#total_sum").ionRangeSlider({
+    $("#amountRange").ionRangeSlider({
         grid: true,
         min: 10000,
         max: 300000,
@@ -270,16 +177,17 @@
         step: 1000,
         prettify_enabled: true
     });
-    $("#annual_rate").ionRangeSlider({
+    $("#rateRange").ionRangeSlider({
         grid: true,
         min: 13.5,
         max: 25.5,
         from: 18.5,
         step: 0.5,
         prettify_enabled: true,
-        prettify_separator: "."
+        prettify_separator: ".",
+        postfix: "%"
     });
-    $("#monthly_payment").ionRangeSlider({
+    $("#minPaymentRange").ionRangeSlider({
         grid: true,
         min: 3000,
         max: 80000,

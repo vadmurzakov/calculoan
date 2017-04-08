@@ -147,7 +147,7 @@ function computeAndShowCard()
 
     var instalment = computeAndShowCommon( annuity, months );
 
-    document.getElementById( "months" ).innerHTML = "\<b>Кол-во платежей: \</b>" + getFormattedSum( instalment[instalment.length - 1].row, 0 );
+    document.getElementById( "months" ).innerHTML = "\<h3>Кол-во платежей: \</h3><span class='title'>" + getFormattedSum( instalment[instalment.length - 1].row, 0 ) + "</span>";
 
 }
 
@@ -296,10 +296,10 @@ function computeAndShowCommon( annuity, months )
     }
 
     overpayment = overpayment - amount + insuranceSum + interestReduceSum;
-    document.getElementById( "overpayment" ).innerHTML = "\<b>Переплата: \</b>" + getFormattedSum( overpayment );
+    document.getElementById( "overpayment" ).innerHTML = "\<h3>Переплата: \</h3><span class='title'>" + getFormattedSum( overpayment ) + " руб</span>";
 
     var fullCreditCost = calcEffectivePercent( pskData, 30 );
-    document.getElementById( "fullCreditCost" ).innerHTML = "\<b>ПСК: \</b>" + getFormattedSum( fullCreditCost, 3 ) + "%";
+    document.getElementById( "fullCreditCost" ).innerHTML = "\<h3>ПСК: \</h3><span class='title'>" + getFormattedSum( fullCreditCost, 3 ) + "%</span>";
 
     createDirectLink();
 

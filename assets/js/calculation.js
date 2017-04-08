@@ -123,7 +123,7 @@ function createInstalment( amount, annuity, rate, loanStartDate, firstPaymentDat
     return instalment;
 }
 
-//    Calculate percent for curAmount with rate as annual year rate and period in days
+//Calculate percent for curAmount with rate as annual year rate and period in days
 //noinspection JSUnusedGlobalSymbols
 function calculatePercentForPeriod( amount, rate, period )
 {

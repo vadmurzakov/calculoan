@@ -4,18 +4,20 @@ html,
 body {
     height: 100%;
     background: url('../img/bg.jpg') no-repeat, repeat center, center;
-    -moz-background-size: 100%; /* Firefox 3.6+ */
-    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
-    -o-background-size: 100%; /* Opera 9.6+ */
-    background-size: 100%; /* Современные браузеры */
-    -webkit-transition: opacity 1.75s ease-out;
-    -ms-transition: opacity 1.75s ease-out;
-    transition: opacity 1.75s ease-out;
+    -moz-background-size: cover; /* Firefox 3.6+ */
+    -webkit-background-size: cover; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: cover; /* Opera 9.6+ */
+    background-size: cover; /* Современные браузеры */
 }
 body {
     color: #555;
     text-align: center;
     font-family: "PT Sans Narrow", sans-serif;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 20px;
+    margin-bottom: 25px;
 }
 
 .container{
@@ -26,7 +28,7 @@ body {
 }
 
 .inner {
-    padding: 30px;
+    padding: 0px 30px 30px 30px;
     border: 2px solid #ddd;
     border-radius: 7px;
 }
@@ -42,6 +44,28 @@ body {
     vertical-align: top;
 }
 
+span.title{
+    color: #e22521;
+    font-size: 18px;
+}
+
+/*margin padding*/
+@media (min-width: 991px) {
+    .mt-11{
+        margin-top: 11px;
+    }
+}
+/*margin padding*/
+
+
+/*FORM*/
+.form-control:focus {
+    border-color: #ff0404;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255, 4, 4, 0.3);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255, 4, 4, 0.3);
+}
+/*FORM*/
 
 @media (min-width: 768px) {
     .masthead-brand {
@@ -55,10 +79,25 @@ body {
 
 @media (min-width: 768px) {
     .masthead {
-        position: fixed;
+        position: absolute;
         top: 0;
     }
     .site-wrapper-inner {
         vertical-align: middle;
+    }
+}
+
+@media (max-width: 991px) {
+    .irs-with-grid{
+        margin-top: 15px;
+    }
+    .container{
+        margin-top: 65px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container{
+        margin: 12px;
     }
 }

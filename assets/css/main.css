@@ -55,6 +55,11 @@ span.title{
         margin-top: 11px;
     }
 }
+@media (min-width: 768px) {
+    .mt-11{
+        margin-top: 11px;
+    }
+}
 /*margin padding*/
 
 

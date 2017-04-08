@@ -10,8 +10,9 @@
     <!-- Bootstrap -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/datepicker.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/plugins/ion.rangeSlider/css/ion.rangeSlider.css">
-    <link rel="stylesheet" href="./assets/plugins/ion.rangeSlider/css/ion.rangeSlider.skinNice.css">
+    <link href="./assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./assets/plugins/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="./assets/plugins/ion.rangeSlider/css/ion.rangeSlider.skinNice.css" rel="stylesheet">
     <link href="./assets/css/prettify.css" rel="stylesheet">
     <link href="./assets/css/main.css" rel="stylesheet">
 <body>
@@ -19,16 +20,18 @@
 <div class="site-wrapper">
 
     <div class="site-wrapper-inner">
-        <!--todo вынести в файл-->
-        <div class="container" style="background: #666">
+        <div class="container">
 
             <div class="masthead clearfix">
-                <div class="inner">
+                <div class="logo">
+                    <!--img-->
+                </div>
+                <div class="title">
                     <h3 class="masthead-brand">Кредит наличными - просто и быстро!</h3>
                 </div>
             </div>
 
-            <div class="inner cover">
+            <div class="inner">
                 <!--begin .row-->
                 <div class="row">
                     <!--begin .col-md-6-->
@@ -40,13 +43,13 @@
                                     <input type="text" class="form-control" placeholder="Сумма">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" id="total_sum" name="total_sum" value="" />
+                                    <input type="text" id="total_sum" name="total_sum" value=""/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="annual_rate" class="col-md-6 control-label">Годовая ставка, %
+                                <label for="annual_rate" class="col-md-6 control-label">Годовая ставка, % </label>
                                 <div class="col-md-6">
-                                    <input type="text" id="annual_rate" name="annual_rate" value="" />
+                                    <input type="text" id="annual_rate" name="annual_rate" value=""/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -54,7 +57,18 @@
                                     <input type="text" class="form-control" placeholder="Ежемесячный платеж">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" id="monthly_payment" name="monthly_payment" value="" />
+                                    <input type="text" id="monthly_payment" name="monthly_payment" value=""/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <div class="input-group"><input class="form-control"
+                                                                    placeholder="Начало периода"
+                                                                    aria-describedby="basic-addon2"> <span
+                                            class="input-group-addon" id="basic-addon2"><i class="fa fa-calendar"></i></span></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="submit" class="btn btn-danger" value="Рассчитать">
                                 </div>
                             </div>
                         </form>
@@ -68,12 +82,6 @@
                 </div>
                 <!--end .row -->
             </div> <!--/.inner cover-->
-
-            <div class="mastfoot">
-                <div class="inner">
-                    <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-                </div>
-            </div>
 
         </div>
 
@@ -114,15 +122,7 @@
         <span class="add-on"></span>
 
     </div>
-    <script type="text/javascript">
-        $(function () {
-            $('#dploanStartDate').datepicker({
-                autoclose: true,
-                language: "ru",
-                weekStart: 1
-            });
-        });
-    </script>
+
 </div>
 
 <div class="col-lg-1">
@@ -134,15 +134,7 @@
         <input id="firstPaymentDate" type="text" class="form-control" value="24.05.2017"/>
         <span class="add-on"></span>
     </div>
-    <script type="text/javascript">
-        $(function () {
-            $('#dpfirstPaymentDate').datepicker({
-                autoclose: true,
-                language: "ru",
-                weekStart: 1
-            });
-        });
-    </script>
+
 </div>
 <br/>
 
@@ -201,12 +193,7 @@
                placeholder="Прямой линк...">
     </div>
 </div>
-<script type="text/javascript">
-    function copyDirectLink() {
-        document.getElementById("directLinkEx").select();
-        document.execCommand('copy');
-    }
-</script>
+
 <br/>
 <br/>
 <br/>
@@ -300,6 +287,30 @@
         step: 1000,
         prettify_enabled: true
     });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#dploanStartDate').datepicker({
+            autoclose: true,
+            language: "ru",
+            weekStart: 1
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#dpfirstPaymentDate').datepicker({
+            autoclose: true,
+            language: "ru",
+            weekStart: 1
+        });
+    });
+</script>
+<script type="text/javascript">
+    function copyDirectLink() {
+        document.getElementById("directLinkEx").select();
+        document.execCommand('copy');
+    }
 </script>
 
 </body>

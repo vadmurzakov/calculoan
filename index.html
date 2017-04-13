@@ -99,7 +99,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-offset-5 col-md-7">
-                                    <input type="submit" class="btn btn-danger" onclick="computeAndShow()"
+                                    <input type="submit" class="btn btn-danger" onclick="computeAndShowCard()"
                                            value="Рассчитать">
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                             <div class="col-sm-4 col-md-4">
                                 <div id="fullCreditCost"><h3>ПСК: </h3></div>
                             </div>
-                            <div class="col-sm-4 col-md-4">
+                            <div clas
                                 <div id="overpayment"><h3>Переплата: </h3></div>
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                             <div class="col-md-6">
                                 <div class="input-group">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" onclick="copyDirectLink()"><i
+                                        <button class="btn btn-default" type="button" id="copyLink"><i
                                                 class="fa fa-copy"></i></button>
                                     </span>
                                     <input id="directLinkEx" readonly="true" type="text" class="form-control"
@@ -173,67 +173,21 @@
 <script src="./assets/js/calculation.js"></script>
 <script src="./assets/js/lookAndFeel.js"></script>
 <script src="./assets/js/ga.js"></script>
+<script src="./assets/js/custom.js"></script>
 
 
 <!--todo вынести в отдельный файл-->
 <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function () {
-        setGetParameters();
-    }, false);
 
-    function computeAndShow() {
-        computeAndShowCard();
-    }
-    $("#amountRange").ionRangeSlider({
-        grid: true,
-        min: 10000,
-        max: 300000,
-        from: 155000,
-        step: 1000,
-        prettify_enabled: true
-    });
-    $("#rateRange").ionRangeSlider({
-        grid: true,
-        min: 13.5,
-        max: 25.5,
-        from: 18.5,
-        step: 0.5,
-        prettify_enabled: true,
-        prettify_separator: ".",
-        postfix: "%"
-    });
-    $("#minPaymentRange").ionRangeSlider({
-        grid: true,
-        min: 3000,
-        max: 80000,
-        from: 41500,
-        step: 1000,
-        prettify_enabled: true
-    });
 </script>
 <script type="text/javascript">
-    $(function () {
-        $('#dploanStartDate').datepicker({
-            autoclose: true,
-            language: "ru",
-            weekStart: 1
-        });
-    });
+
 </script>
 <script type="text/javascript">
-    $(function () {
-        $('#dpfirstPaymentDate').datepicker({
-            autoclose: true,
-            language: "ru",
-            weekStart: 1
-        });
-    });
+
 </script>
 <script type="text/javascript">
-    function copyDirectLink() {
-        document.getElementById("directLinkEx").select();
-        document.execCommand('copy');
-    }
+
 </script>
 
 </body>

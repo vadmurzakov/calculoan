@@ -9,6 +9,7 @@ body {
     -o-background-size: cover; /* Opera 9.6+ */
     background-size: cover; /* Современные браузеры */
 }
+
 body {
     color: #555;
     text-align: center;
@@ -24,6 +25,7 @@ body {
     color: #fff;
     margin: 25px 0 25px 0;
 }
+
 .header-logo {
     margin-top: 20px;
     float: left;
@@ -42,14 +44,14 @@ body {
     min-height: 100%;
 }
 
-.site-wrapper-inner > .container{
+.site-wrapper-inner > .container {
     background: #fafafa;
     border-radius: 18px;
     padding: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
 }
 
-span.title{
+span.title {
     color: #e22521;
     font-size: 18px;
 }
@@ -57,33 +59,34 @@ span.title{
 .form-control:focus {
     border-color: #ff0404;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255, 4, 4, 0.3);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255, 4, 4, 0.3);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(255, 4, 4, 0.3);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(255, 4, 4, 0.3);
 }
 
-
 @media (min-width: 991px) {
-    .mt-11{
+    .mt-11 {
         margin-top: 11px;
     }
 }
+
 @media (min-width: 768px) {
-    .mt-11{
+    .mt-11 {
         margin-top: 11px;
     }
 }
 
 @media (max-width: 991px) {
-    .irs-with-grid{
+    .irs-with-grid {
         margin-top: 15px;
     }
-    .container{
+
+    .container {
         /*margin-top: 65px;*/
     }
 }
 
 @media (max-width: 768px) {
-    .container{
+    .container {
         margin: 12px;
     }
 }

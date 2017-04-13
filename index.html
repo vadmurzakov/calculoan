@@ -120,22 +120,44 @@
                         </div>
                         <!--begin .row-->
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="table-responsive">
-                                    <table id="instalmentTable" class="table table-hover">
-                                        <thead>
-                                        <tr>
-                                            <th><b>#</b></th>
-                                            <th><b>Дата</b></th>
-                                            <th><b>Платеж</b></th>
-                                            <th><b>Проценты</b></th>
-                                            <th><b>Основной долг</b></th>
-                                            <th><b>Остаток долга</b></th>
-                                        </tr>
-                                        </thead>
-                                    </table>
+                            <div>
+
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#tableTab" aria-controls="home"
+                                                                              role="tab" data-toggle="tab">Таблица</a>
+                                    </li>
+                                    <li role="presentation"><a href="#chartTab" aria-controls="profile" role="tab"
+                                                               data-toggle="tab">График</a></li>
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="tableTab">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="instalmentTable" class="table table-hover">
+                                                    <thead>
+                                                    <tr>
+                                                        <th><b>#</b></th>
+                                                        <th><b>Дата</b></th>
+                                                        <th><b>Платеж</b></th>
+                                                        <th><b>Проценты</b></th>
+                                                        <th><b>Основной долг</b></th>
+                                                        <th><b>Остаток долга</b></th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div> <!--/.col-md-12-->
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="chartTab">
+                                        <canvas id="myChart" width="300" height="300"></canvas>
+                                    </div>
                                 </div>
-                            </div> <!--/.col-md-12-->
+
+                            </div>
+
                         </div> <!--end .row -->
                         <div class="row">
                             <div class="col-md-offset-2 col-md-4">Поделиться ссылкой:</div>
@@ -172,6 +194,8 @@
 <script src="./assets/js/calcEffectivePercent.js"></script>
 <script src="./assets/js/calculation.js"></script>
 <script src="./assets/js/lookAndFeel.js"></script>
+<script src="./bower_components/chart.js/dist/Chart.min.js"></script>
+<script src="./assets/js/chart.js"></script>
 <script src="./assets/js/ga.js"></script>
 <script src="./assets/js/custom.js"></script>
 

@@ -130,3 +130,4 @@ Temporary Items
 # End of https://www.gitignore.io/api/macos,intellij,webstorm
 /assets/plugins/ion.rangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js
 /assets/plugins/ion.rangeSlider/js/ion-rangeSlider/
+/bower_components/

@@ -1,0 +1,20 @@
+{
+  "name": "calculoan",
+  "homepage": "https://github.com/vadmurzakov/calculoan",
+  "authors": [
+    "vadmurzakov <vadmurzakov@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "^2.5.0"
+  }
+}

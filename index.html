@@ -19,17 +19,31 @@
 
 <div class="site-wrapper">
 
-    <div class="site-wrapper-inner">
-        <div class="container">
 
-            <div class="masthead clearfix">
-                <div class="logo">
-                    <!--img-->
-                </div>
-                <div class="title">
-                    <h3 class="masthead-brand">Кредит наличными - просто и быстро!</h3>
-                </div>
-            </div>
+    <div class="site-wrapper-inner">
+
+
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="header-logo">
+                            <img src="./assets/img/logo.png" alt="Home Credit">
+                        </div>
+                    </div>
+                </div> <!--/.row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="title">
+                            <h2 class="header-brand">Кредит наличными - просто и быстро!</h2>
+                        </div>
+                    </div>
+                </div> <!--/.row-->
+            </div> <!--/.container-->
+        </div> <!--/.header-->
+
+
+        <div class="container">
 
             <div class="inner">
                 <!--begin .row-->
@@ -66,19 +80,19 @@
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <div class="input-group mt-11"><input id="loanStartDate"
-                                                                    name="loanStartDate"
-                                                                    class="form-control"
-                                                                    placeholder="Начало расчетного периода"
-                                                                    aria-describedby="basic-addon1"> <span
+                                                                          name="loanStartDate"
+                                                                          class="form-control"
+                                                                          placeholder="Начало расчетного периода"
+                                                                          aria-describedby="basic-addon1"> <span
                                             class="input-group-addon" id="basic-addon1"><i
                                             class="fa fa-calendar"></i></span></div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group mt-11"><input id="firstPaymentDate"
-                                                                    name="firstPaymentDate"
-                                                                    class="form-control"
-                                                                    placeholder="Дата первого платежа"
-                                                                    aria-describedby="basic-addon2"> <span
+                                                                          name="firstPaymentDate"
+                                                                          class="form-control"
+                                                                          placeholder="Дата первого платежа"
+                                                                          aria-describedby="basic-addon2"> <span
                                             class="input-group-addon" id="basic-addon2"><i
                                             class="fa fa-calendar"></i></span></div>
                                 </div>
@@ -128,7 +142,8 @@
                             <div class="col-md-6">
                                 <div class="input-group">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" onclick="copyDirectLink()"><i class="fa fa-copy"></i></button>
+                                        <button class="btn btn-default" type="button" onclick="copyDirectLink()"><i
+                                                class="fa fa-copy"></i></button>
                                     </span>
                                     <input id="directLinkEx" readonly="true" type="text" class="form-control"
                                            placeholder="Прямой линк...">

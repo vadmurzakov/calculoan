@@ -3,9 +3,16 @@
  */
 
 $(document).ready(function () {
+
     document.addEventListener('DOMContentLoaded', function () {
         setGetParameters();
     }, false);
+
+	var date = new Date();
+	$('#loanStartDate').val(date.getDate() + '.' + (date.getMonth() + 1) + '.' +  date.getFullYear());
+	$('#amount').val(150000);
+	$('#rate').val(29.9);
+	$('#minPayment').val(10000);
 
     $("#amountRange").ionRangeSlider({
         grid: true,
@@ -22,15 +29,14 @@ $(document).ready(function () {
 
     $("#rateRange").ionRangeSlider({
         grid: true,
-        min: 13.5,
-        max: 25.5,
-        from: 18.5,
-        step: 0.5,
+        from: 1,
+        to: 3,
+		values: [29.9, 33.9, 49.9],
         prettify_enabled: true,
         prettify_separator: ".",
         postfix: "%",
         onChange: function (data) {
-            $('#rate').val(data.from);
+            $('#rate').val(data.from_value);
         }
     });
 
@@ -61,6 +67,20 @@ $(document).ready(function () {
         locale: 'ru',
         weekStart: 1
     });
+
+    $('#basic-addon1').datepicker({
+		autoclose: true,
+		format: 'dd.mm.yyyy',
+		locale: 'ru',
+		weekStart: 1
+    });
+
+	$('#basic-addon2').datepicker({
+		autoclose: true,
+		format: 'dd.mm.yyyy',
+		locale: 'ru',
+		weekStart: 1
+	});
 
     $('#copyLink').on("click", function(){
         document.getElementById("directLinkEx").select();

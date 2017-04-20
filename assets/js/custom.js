@@ -14,11 +14,13 @@ $(document).ready(function () {
 	$('#rate').val(29.9);
 	$('#minPayment').val(10000);
 
+	setPaymentStartDate();
+
     $("#amountRange").ionRangeSlider({
         grid: true,
         min: 10000,
         max: 300000,
-        from: 155000,
+        from: 150000,
         step: 1000,
         prettify_enabled: true,
         postfix: " р",
@@ -29,7 +31,7 @@ $(document).ready(function () {
 
     $("#rateRange").ionRangeSlider({
         grid: true,
-        from: 1,
+        from: 0,
         to: 3,
 		values: [29.9, 33.9, 49.9],
         prettify_enabled: true,
@@ -44,7 +46,7 @@ $(document).ready(function () {
         grid: true,
         min: 3000,
         max: 80000,
-        from: 41500,
+        from: 10000,
         step: 1000,
         prettify_enabled: true,
         postfix: " р",

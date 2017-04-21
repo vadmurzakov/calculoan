@@ -69,16 +69,16 @@ span.title {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(255, 4, 4, 0.3);
 }
 
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
     background-color: #fafafa;
 }
 
-.nav-tabs>li>a:hover {
-     border-color: #eee #eee #ddd;
+.nav-tabs > li > a:hover {
+    border-color: #eee #eee #ddd;
 }
 
-.nav>li>a:focus, .nav>li>a:hover {
-     background-color: #fafafa;
+.nav > li > a:focus, .nav > li > a:hover {
+    background-color: #fafafa;
 }
 
 @media (min-width: 991px) {

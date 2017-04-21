@@ -63,26 +63,31 @@ $(document).ready(function () {
         weekStart: 1
     });
 
-    $('#firstPaymentDate').datepicker({
-        autoclose: true,
-        format: 'dd.mm.yyyy',
-        locale: 'ru',
-        weekStart: 1
+	$('#loanStartDate').datepicker('change', function(data){
+	    console.log(data);
+		$('#loanStartDate').val(data);
     });
 
-    $('#basic-addon1').datepicker({
-		autoclose: true,
-		format: 'dd.mm.yyyy',
-		locale: 'ru',
-		weekStart: 1
-    });
+    // $('#firstPaymentDate').datepicker({
+    //     autoclose: true,
+    //     format: 'dd.mm.yyyy',
+    //     locale: 'ru',
+    //     weekStart: 1
+    // });
 
-	$('#basic-addon2').datepicker({
+	$('#basic-addon1').datepicker({
 		autoclose: true,
 		format: 'dd.mm.yyyy',
 		locale: 'ru',
 		weekStart: 1
 	});
+	//
+	// $('#basic-addon2').datepicker({
+	// 	autoclose: true,
+	// 	format: 'dd.mm.yyyy',
+	// 	locale: 'ru',
+	// 	weekStart: 1
+	// });
 
     $('#copyLink').on("click", function(){
         document.getElementById("directLinkEx").select();

@@ -97,10 +97,10 @@ function addThousandSpaces(integer) {
 }
 
 function setPaymentStartDate() {
-	var firstPaymentDate = getNormalDate(document.getElementById("loanStartDate").value);
+	loanStartDate = getNormalDate(document.getElementById("loanStartDate").value);
+	firstPaymentDate = loanStartDate;
 	firstPaymentDate.setMonth(firstPaymentDate.getMonth() + 1);
-	document.getElementById("firstPaymentDate").value = getFormattedDate(firstPaymentDate);
-	$('#dpfirstPaymentDate').datepicker('update', getFormattedDate(firstPaymentDate));
+	firstPaymentDate.setDate(firstPaymentDate.getDate() + 19);
 }
 
 function computeAndShowCredit() {
@@ -138,7 +138,9 @@ function readControls() {
 	interestReduceSumPercent = getNormalSum(readControlValueSafe("interestReduceSumPercent", "0"));
 
 	loanStartDate = getNormalDate(document.getElementById("loanStartDate").value);
-	firstPaymentDate = getNormalDate(document.getElementById("firstPaymentDate").value);
+	firstPaymentDate = loanStartDate;
+	firstPaymentDate.setMonth(firstPaymentDate.getMonth() + 1);
+	firstPaymentDate.setDate(firstPaymentDate.getDate() + 19);
 }
 
 function readControlValueSafe(idControl, defaultValue) {

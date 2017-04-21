@@ -1,6 +1,3 @@
-<!--Created by Kirill Danilov-->
-<!--2017-->
-<!--Contact the author if want to use-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +7,10 @@
     <!-- Bootstrap -->
     <link href="./assets/css/normalize.css" rel="stylesheet">
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-    <!--<link href="./assets/css/datepicker.css" rel="stylesheet">-->
     <link href="./assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="./assets/plugins/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
     <link href="./assets/plugins/ion.rangeSlider/css/ion.rangeSlider.skinNice.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/plugins/bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.min.css">
-    <!--<link href="./assets/plugins/ion.calendar/css/ion.calendar.css" rel="stylesheet">-->
     <link href="./assets/css/prettify.css" rel="stylesheet">
     <link href="./assets/css/main.css" rel="stylesheet">
 <body>
@@ -65,7 +60,8 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-5">
-                                    <input id="rate" type="text" class="form-control" placeholder="Годовая ставка, %" disabled>
+                                    <input id="rate" type="text" class="form-control" placeholder="Годовая ставка, %"
+                                           disabled>
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="rateRange" name="rateRange" value=""/>
@@ -83,13 +79,15 @@
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <div class="input-group input-append date mt-11">
-                                        <input id="loanStartDate" name="loanStartDate" type="text" class="form-control" onchange="setPaymentStartDate()">
+                                        <input id="loanStartDate" name="loanStartDate" type="text" class="form-control"
+                                               onchange="setPaymentStartDate()">
                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group mt-11">
-                                        <input id="calculoan" type="submit" class="btn btn-danger" onclick="computeAndShowCard()" value="Рассчитать">
+                                        <input id="calculoan" type="submit" class="btn btn-danger"
+                                               onclick="computeAndShowCard()" value="Рассчитать">
                                     </div>
                                 </div>
                             </div>

@@ -61,21 +61,38 @@ $(document).ready(function () {
 		autoclose: true
 	});
 
+	//обновляем слайдер при вводе данных с клавиатуры
 	$('#amount').keyup(function(data){
 		var amount = $(this).val();
 		$('#amountRange').data("ionRangeSlider").update({from: amount});
 	});
-
 	$('#rate').keyup(function(data){
 		var rate = $(this).val();
 		$('#rateRange').data("ionRangeSlider").update({from: rate});
 	});
-
 	$('#minPayment').keyup(function(data){
 		var minPayment = $(this).val();
 		$('#minPaymentRange').data("ionRangeSlider").update({from: minPayment});
 	});
 
+	//добавляем префиксы при потере фокуса
+	$('#amount').blur(function(){
+		$(this).val($(this).val() + ' руб');
+	});
+	$('#minPayment').blur(function(){
+		$(this).val($(this).val() + ' руб');
+	});
+
+	//выделение при получении фокуса
+	$('#amount').focus(function () {
+		$(this).select();
+	});
+	$('#minPayment').focus(function () {
+		$(this).select();
+	});
+
+
+	//копирование ссылки
     $('#copyLink').on("click", function(){
         document.getElementById("directLinkEx").select();
         document.execCommand('copy');

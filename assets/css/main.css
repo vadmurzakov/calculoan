@@ -85,15 +85,20 @@ span.title {
     outline: 0px auto red;
 }
 
+.description{
+    color: #aaa;
+    float: left;
+}
+
 @media (min-width: 991px) {
     .mt-11 {
-        margin-top: 11px;
+        margin-top: 20px;
     }
 }
 
 @media (min-width: 768px) {
     .mt-11 {
-        margin-top: 11px;
+        margin-top: 20px;
     }
 }
 

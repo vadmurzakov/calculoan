@@ -9,10 +9,10 @@ $(document).ready(function () {
     }, false);
 
 	var date = new Date();
-	$('#loanStartDate').val(date.getDate() + '.' + (date.getMonth() + 1) + '.' +  date.getFullYear());
-	$('#amount').val(150000);
-	$('#rate').val(29.9);
-	$('#minPayment').val(10000);
+	$('#loanStartDate').val(moment(date).format("DD.MM.YYYY"));
+	$('#amount').val(150000 + ' руб');
+	$('#rate').val(29.9 + ' %');
+	$('#minPayment').val(10000 + ' руб');
 
 	setPaymentStartDate();
 
@@ -25,7 +25,7 @@ $(document).ready(function () {
         prettify_enabled: true,
         postfix: " р",
         onChange: function (data) {
-            $('#amount').val(data.from);
+            $('#amount').val(data.from + ' руб');
         }
     });
 
@@ -38,7 +38,7 @@ $(document).ready(function () {
         prettify_separator: ".",
         postfix: "%",
         onChange: function (data) {
-            $('#rate').val(data.from_value);
+            $('#rate').val(data.from_value + ' %');
         }
     });
 
@@ -51,43 +51,30 @@ $(document).ready(function () {
         prettify_enabled: true,
         postfix: " р",
         onChange: function (data) {
-            $('#minPayment').val(data.from);
+            $('#minPayment').val(data.from + ' руб');
         }
     });
 
-
-    $('#loanStartDate').datepicker({
-        autoclose: true,
-        format: 'dd.mm.yyyy',
-        locale: 'ru',
-        weekStart: 1
-    });
-
-	$('#loanStartDate').datepicker('change', function(data){
-	    console.log(data);
-		$('#loanStartDate').val(data);
-    });
-
-    // $('#firstPaymentDate').datepicker({
-    //     autoclose: true,
-    //     format: 'dd.mm.yyyy',
-    //     locale: 'ru',
-    //     weekStart: 1
-    // });
-
-	$('#basic-addon1').datepicker({
-		autoclose: true,
-		format: 'dd.mm.yyyy',
-		locale: 'ru',
-		weekStart: 1
+	$('.input-append.date').datepicker({
+		format: "dd.mm.yyyy",
+		language: "ru",
+		autoclose: true
 	});
-	//
-	// $('#basic-addon2').datepicker({
-	// 	autoclose: true,
-	// 	format: 'dd.mm.yyyy',
-	// 	locale: 'ru',
-	// 	weekStart: 1
-	// });
+
+	$('#amount').keyup(function(data){
+		var amount = $(this).val();
+		$('#amountRange').data("ionRangeSlider").update({from: amount});
+	});
+
+	$('#rate').keyup(function(data){
+		var rate = $(this).val();
+		$('#rateRange').data("ionRangeSlider").update({from: rate});
+	});
+
+	$('#minPayment').keyup(function(data){
+		var minPayment = $(this).val();
+		$('#minPaymentRange').data("ionRangeSlider").update({from: minPayment});
+	});
 
     $('#copyLink').on("click", function(){
         document.getElementById("directLinkEx").select();

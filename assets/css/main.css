@@ -81,6 +81,10 @@ span.title {
     background-color: #fafafa;
 }
 
+#calculoan{
+    outline: 0px auto red;
+}
+
 @media (min-width: 991px) {
     .mt-11 {
         margin-top: 11px;

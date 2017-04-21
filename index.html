@@ -8,11 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap -->
+    <link href="./assets/css/normalize.css" rel="stylesheet">
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./assets/css/datepicker.css" rel="stylesheet">
+    <!--<link href="./assets/css/datepicker.css" rel="stylesheet">-->
     <link href="./assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="./assets/plugins/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
     <link href="./assets/plugins/ion.rangeSlider/css/ion.rangeSlider.skinNice.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/plugins/bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.min.css">
+    <!--<link href="./assets/plugins/ion.calendar/css/ion.calendar.css" rel="stylesheet">-->
     <link href="./assets/css/prettify.css" rel="stylesheet">
     <link href="./assets/css/main.css" rel="stylesheet">
 <body>
@@ -62,7 +65,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-5">
-                                    <input id="rate" type="text" class="form-control" placeholder="Годовая ставка, %">
+                                    <input id="rate" type="text" class="form-control" placeholder="Годовая ставка, %" disabled>
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="rateRange" name="rateRange" value=""/>
@@ -79,29 +82,15 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-6">
-                                    <div class="input-group mt-11"><input id="loanStartDate"
-                                                                          name="loanStartDate"
-                                                                          class="form-control"
-                                                                          placeholder="Начало расчетного периода"
-                                                                          aria-describedby="basic-addon1"
-                                                                          onchange="setPaymentStartDate()"
-                                    > <span
-                                            class="input-group-addon" id="basic-addon1"><i
-                                            class="fa fa-calendar"></i></span></div>
+                                    <div class="input-group input-append date mt-11">
+                                        <input id="loanStartDate" name="loanStartDate" type="text" class="form-control" onchange="setPaymentStartDate()">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group mt-11">
-                                        <input type="submit" class="btn btn-danger" onclick="computeAndShowCard()"
-                                               value="Рассчитать">
-                                        <input
-                                                id="firstPaymentDate"
-                                                type="hidden"
-                                                name="firstPaymentDate"
-                                                class="form-control"
-                                                placeholder="Дата первого платежа"
-                                                aria-describedby="basic-addon2"> <span
-                                            class="input-group-addon" id="basic-addon2" style="display: none;"><i
-                                            class="fa fa-calendar"></i></span></div>
+                                        <input id="calculoan" type="submit" class="btn btn-danger" onclick="computeAndShowCard()" value="Рассчитать">
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -193,10 +182,11 @@
 <script src="./assets/js/third/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="./assets/js/third/bootstrap.min.js"></script>
-<script src="./assets/js/third/bootstrap-datepicker.js"></script>
-<script src="./assets/js/third/bootstrap-datepicker.ru.js"></script>
+<script src="./assets/plugins/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.min.js"></script>
+<script src="./assets/plugins/bootstrap-datepicker-1.6.4-dist/locales/bootstrap-datepicker.ru.min.js"></script>
 <script src="./assets/plugins/ion.rangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
 <script src="./assets/js/third/prettify.js"></script>
+<script src="./assets/js/third/moment.js"></script>
 <script src="./assets/js/calcEffectivePercent.js"></script>
 <script src="./assets/js/calculation.js"></script>
 <script src="./assets/js/lookAndFeel.js"></script>
@@ -205,6 +195,8 @@
 <script src="./assets/js/ga.js"></script>
 <script src="./assets/js/custom.js"></script>
 
+<script>
 
+</script>
 </body>
 </html>

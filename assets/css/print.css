@@ -1,0 +1,11 @@
+* {
+    color: black;
+}
+
+form {
+    display: none;
+}
+
+.table-responsive {
+    height: 100%;
+}

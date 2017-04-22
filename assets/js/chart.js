@@ -2,42 +2,47 @@
  * Created by imvad on 13.04.17.
  */
 $(document).ready(function(){
-	var ctx = $("#myChart");
 
-	var myChart = new Chart(ctx, {
-		type: 'line',
-		data: {
-			labels: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь"],
-			datasets: [{
-				label: 'Рубли',
-				data: [12, 19, 3, 5, 2, 3],
-				backgroundColor: [
-					// 'rgba(255, 99, 132, 0.2)',
-					// 'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-				],
-				borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-				],
-				borderWidth: 1
-			}]
-		},
-		options: {
-			scales: {
-				yAxes: [{
-					ticks: {
-						beginAtZero:true
-					}
-				}]
+	$("[data-chart]").on('click', function(){
+
+		var arrLabels = [];
+		var arrSeries = [];
+		var arrPercent = [];
+
+		if (dataChart === undefined) {
+			arrPercent[0] = 0;
+			arrSeries[0] = 0;
+		} else {
+			for (var i = 0; i < dataChart.length; i++) {
+				arrLabels[i] = moment(dataChart[i].date).format("DD.MM");
+				arrSeries[i] = dataChart[i].loan;
+				arrPercent[i] = dataChart[i].percent;
 			}
 		}
+
+
+		new Chartist.Bar('.ct-chart', {
+			labels: arrLabels,
+			series: [
+				{"name": "основной долг", "data": arrSeries},
+				{"name": "проценты", "data": arrPercent}
+			]
+		}, {
+			stackBars: true,
+			plugins: [
+				Chartist.plugins.legend()
+			],
+			axisY: {
+				labelInterpolationFnc: function (value) {
+					return (value / 1000) + 'k';
+				}
+			}
+		}).on('draw', function (data) {
+			if (data.type === 'bar') {
+				data.element.attr({
+					style: 'stroke-width: 20px'
+				});
+			}
+		});
 	});
 });

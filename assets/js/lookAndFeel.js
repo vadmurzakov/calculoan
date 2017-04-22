@@ -8,6 +8,7 @@ var normalRate;
 var interestReduceSumPercent;
 var loanStartDate;
 var firstPaymentDate;
+var dataChart;
 
 function getNormalDate(dateStr) {
 	var dateNormal = dateStr.split('.');
@@ -238,6 +239,8 @@ function computeAndShowCommon(annuity, months) {
 			flow: interestReduceSum
 		});
 	}
+
+	dataChart = instalment;
 
 	for (var i = 0; i < instalment.length; i++) {
 		tr = document.createElement("tr");

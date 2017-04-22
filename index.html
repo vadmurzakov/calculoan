@@ -19,6 +19,7 @@
     <link href="./assets/css/prettify.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/print.css" media="print">
     <link href="./assets/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="./bower_components/chartist/dist/chartist.min.css">
 <body>
 
 <div class="site-wrapper">
@@ -91,12 +92,13 @@
                                     <div class="input-group input-append date mt-11">
                                         <input id="loanStartDate" name="loanStartDate" type="text" class="form-control"
                                                onchange="setPaymentStartDate()">
-                                        <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button></span>
+                                        <span class="input-group-btn"><button class="btn btn-default" type="button"><i
+                                                class="fa fa-calendar"></i></button></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group mt-11">
-                                        <input id="calculoan" type="submit" class="btn btn-danger"
+                                        <input id="calculoan" type="submit" class="btn btn-danger" data-chart
                                                onclick="computeAndShowCard()" value="Рассчитать">
                                     </div>
                                 </div>
@@ -112,26 +114,27 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-sm-4 col-md-4">
-                                <div id="months"><h3>Кол-во платежей: </h3></div>
+                                <div id="months"><h3>Кол-во платежей: </h3><span class="title">0</span></div>
                             </div>
                             <div class="col-sm-4 col-md-4">
-                                <div id="fullCreditCost"><h3>ПСК: </h3></div>
+                                <div id="fullCreditCost"><h3>ПСК: </h3><span class="title">0%</span></div>
                             </div>
                             <div class="col-sm-4 col-md-4">
-                                <div id="overpayment"><h3>Переплата: </h3></div>
+                                <div id="overpayment"><h3>Переплата: </h3><span class="title">0 руб</span></div>
                             </div>
                         </div>
                         <!--begin .row-->
                         <div class="row">
-                            <div>
+                            <div class="mt-11">
 
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li role="presentation" class="active"><a href="#tableTab" aria-controls="home"
                                                                               role="tab" data-toggle="tab">Таблица</a>
                                     </li>
-                                    <li role="presentation"><a href="#chartTab" aria-controls="profile" role="tab"
-                                    data-toggle="tab">График</a></li>
+                                    <li role="presentation" data-chart><a href="#chartTab" aria-controls="profile"
+                                                                          role="tab"
+                                                                          data-toggle="tab">График</a></li>
                                 </ul>
 
                                 <!-- Tab panes -->
@@ -150,19 +153,29 @@
                                                         <th><b>Остаток долга</b></th>
                                                     </tr>
                                                     </thead>
+                                                    <tbody>
+                                                        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                                        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                                        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                                        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                                        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                                        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                                        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                                        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div> <!--/.col-md-12-->
                                     </div>
                                     <div role="tabpanel" class="tab-pane" id="chartTab">
-                                        <canvas id="myChart" width="300" height="300"></canvas>
+                                        <div class="ct-chart ct-perfect-fourth"></div>
                                     </div>
                                 </div>
 
                             </div>
 
                         </div> <!--end .row -->
-                        <div class="row">
+                        <div class="row mt-11">
                             <div class="col-md-offset-2 col-md-4">Поделиться ссылкой:</div>
                             <div class="col-md-6">
                                 <div class="input-group">
@@ -187,24 +200,22 @@
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="./assets/js/third/jquery-3.1.1.min.js"></script>
+<script src="./assets/js/third/jquery-3.2.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="./assets/js/third/bootstrap.min.js"></script>
 <script src="./assets/plugins/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.min.js"></script>
 <script src="./assets/plugins/bootstrap-datepicker-1.6.4-dist/locales/bootstrap-datepicker.ru.min.js"></script>
+<script src="./bower_components/chartist/dist/chartist.min.js"></script>
+<script src="./bower_components/chartist-plugin-legend/chartist-plugin-legend.js"></script>
+<script src="./assets/js/chart.js"></script>
 <script src="./assets/plugins/ion.rangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
 <script src="./assets/js/third/prettify.js"></script>
 <script src="./assets/js/third/moment.js"></script>
 <script src="./assets/js/calcEffectivePercent.js"></script>
 <script src="./assets/js/calculation.js"></script>
 <script src="./assets/js/lookAndFeel.js"></script>
-<script src="./bower_components/chart.js/dist/Chart.min.js"></script>
-<script src="./assets/js/chart.js"></script>
 <script src="./assets/js/ga.js"></script>
 <script src="./assets/js/custom.js"></script>
 
-<script>
-
-</script>
 </body>
 </html>

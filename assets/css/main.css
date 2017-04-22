@@ -65,10 +65,10 @@ span.title {
 }
 
 .form-control:focus {
-    border-color: #ff0404;
+    border-color: #364564;
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(255, 4, 4, 0.3);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(255, 4, 4, 0.3);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(133, 137, 161, 0.67);
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
@@ -112,6 +112,53 @@ span.title {
     overflow-x:hidden;
 }
 
+.ct-perfect-fourth>svg {
+    top: 10px!important;
+}
+.ct-series-a .ct-bar, .ct-series-a .ct-line, .ct-series-a .ct-point, .ct-series-a .ct-slice-donut {
+    stroke: #f05b4f!important;
+}
+
+.ct-series-b .ct-bar, .ct-series-b .ct-line, .ct-series-b .ct-point, .ct-series-b .ct-slice-donut {
+    stroke: #ffd879!important;
+}
+.ct-label {
+    font-size: 1rem!important;
+}
+.ct-legend {
+    position: relative;
+    margin-top: 8px;
+    z-index: 10;
+    list-style: none;
+    text-align: center;
+}
+.ct-legend li {
+    position: relative;
+    padding-left: 23px;
+    margin-right: 10px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    display: inline-block;
+}
+.ct-legend .ct-series-0:before {
+    background-color: #f05b4f;
+    border-color: #f05b4f;
+}
+.ct-legend .ct-series-1:before {
+    background-color: #f4c63d;
+    border-color: #f4c63d;
+}
+.ct-legend li:before {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: 0;
+    content: '';
+    border: 3px solid transparent;
+    border-radius: 2px;
+}
+
+
 @media (min-width: 991px) {
     .mt-11 {
         margin-top: 20px;
@@ -137,5 +184,8 @@ span.title {
 @media (max-width: 768px) {
     .container {
         margin: 12px;
+    }
+    body {
+        overflow-y: scroll;
     }
 }

@@ -63,7 +63,7 @@ $(document).ready(function () {
 
 	//обновляем слайдер при вводе данных с клавиатуры
 	$('#amount').keyup(function(data){
-		var amount = $(this).val();
+		var amount = $(this).val().replace(" руб", "");
 		$('#amountRange').data("ionRangeSlider").update({from: amount});
 	});
 	$('#rate').keyup(function(data){
@@ -71,20 +71,23 @@ $(document).ready(function () {
 		$('#rateRange').data("ionRangeSlider").update({from: rate});
 	});
 	$('#minPayment').keyup(function(data){
-		var minPayment = $(this).val();
+		var minPayment = $(this).val().replace(" руб", "");
 		$('#minPaymentRange').data("ionRangeSlider").update({from: minPayment});
 	});
 
 	//добавляем префиксы при потере фокуса
 	$('#amount').blur(function(){
-		$(this).val($(this).val() + ' руб');
+		var curr = $(this).val().replace(" руб", "");
+		$(this).val(curr + " руб");
 	});
 	$('#minPayment').blur(function(){
-		$(this).val($(this).val() + ' руб');
+		var curr = $(this).val().replace(" руб", "");
+		$(this).val(curr + " руб");
 	});
 
 	//выделение при получении фокуса
 	$('#amount').focus(function () {
+
 		$(this).select();
 	});
 	$('#minPayment').focus(function () {

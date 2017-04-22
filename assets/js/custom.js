@@ -2,17 +2,18 @@
  * Created by imvad on 13.04.17.
  */
 
+var date = new Date();
+$('#loanStartDate').val(moment(date).format("DD.MM.YYYY"));
+$('#amount').val(150000 + ' руб');
+$('#rate').val(29.9 + ' %');
+$('#minPayment').val(10000 + ' руб');
+
 $(document).ready(function () {
 
     document.addEventListener('DOMContentLoaded', function () {
         setGetParameters();
     }, false);
 
-	var date = new Date();
-	$('#loanStartDate').val(moment(date).format("DD.MM.YYYY"));
-	$('#amount').val(150000 + ' руб');
-	$('#rate').val(29.9 + ' %');
-	$('#minPayment').val(10000 + ' руб');
 
 	setPaymentStartDate();
 

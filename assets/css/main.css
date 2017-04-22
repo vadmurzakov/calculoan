@@ -90,6 +90,11 @@ span.title {
     float: left;
 }
 
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+}
+
 @media (min-width: 991px) {
     .mt-11 {
         margin-top: 20px;

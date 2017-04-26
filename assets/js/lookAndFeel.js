@@ -139,7 +139,7 @@ function readControls() {
 	interestReduceSumPercent = getNormalSum(readControlValueSafe("interestReduceSumPercent", "0"));
 
 	loanStartDate = getNormalDate(document.getElementById("loanStartDate").value);
-	firstPaymentDate = loanStartDate;
+	firstPaymentDate = getNormalDate(document.getElementById("loanStartDate").value);
 	firstPaymentDate.setMonth(firstPaymentDate.getMonth() + 1);
 	firstPaymentDate.setDate(firstPaymentDate.getDate() + 19);
 }

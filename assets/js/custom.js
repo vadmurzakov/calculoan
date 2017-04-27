@@ -10,10 +10,9 @@ $('#minPayment').val(10000 + ' руб');
 
 $(document).ready(function () {
 
-	document.addEventListener('DOMContentLoaded', function () {
-		setGetParameters();
-	}, false);
-
+	// document.addEventListener('DOMContentLoaded', function () {
+	// 	setGetParameters();
+	// }, false);
 
 	setPaymentStartDate();
 
@@ -101,6 +100,20 @@ $(document).ready(function () {
 		document.getElementById("directLinkEx").select();
 		document.execCommand('copy');
 	});
+
+
+    if(url('?calculoan')){
+        $('#amount').val(url('?amount'));
+        $('#rate').val(url('?rate'));
+        $('#minPayment').val(url('?minPayment'));
+        $('#loanStartDate').val(url('?loanStartDate'));
+        $('#amountRange').data('ionRangeSlider').update({from: url('?amountRange')});
+        if(url('?rateRange') == '29.9') $('#rateRange').data('ionRangeSlider').update({from: 0});
+        if(url('?rateRange') == '33.9') $('#rateRange').data('ionRangeSlider').update({from: 1});
+        if(url('?rateRange') == '49.9') $('#rateRange').data('ionRangeSlider').update({from: 2});
+        $('#minPaymentRange').data('ionRangeSlider').update({from: url('?minPaymentRange')});
+        computeAndShowCard();
+    }
 
 });
 

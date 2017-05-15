@@ -1,11 +1,25 @@
 * {
     color: black;
+    padding: 0!important;
+    margin: 0!important;
+    border: 0!important;
 }
 
-form {
-    display: none;
+form, button, input, ul, li {
+    display: none!important;
+}
+
+h3 {
+    text-align: left!important;
+    font-size: 18px!important;
+}
+
+span {
+    float: right!important;
 }
 
 .table-responsive {
-    height: 100%;
+    max-height: 100%!important;
+    height: 100%!important;
+    overflow: hidden!important;
 }

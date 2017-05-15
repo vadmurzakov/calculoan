@@ -117,11 +117,11 @@ function computeAndShowCredit() {
 function computeAndShowCard() {
 	readControls();
 	var months = 0;
-	var annuity = getNormalSum(document.getElementById("minPayment").value);
+	var annuity = getNormalSum($("#minPayment").val());
 	var minRealPayment = calculatePercentForDates(amount, normalRate, loanStartDate, firstPaymentDate);
 	if (annuity < minRealPayment) {
 		annuity = minRealPayment;
-		document.getElementById("minPayment").value = getFormattedSum(annuity);
+		$("#minPayment").val(getFormattedSum(annuity));
 	}
 
 	var instalment = computeAndShowCommon(annuity, months);
@@ -131,26 +131,21 @@ function computeAndShowCard() {
 }
 
 function readControls() {
-	amount = getNormalSum(document.getElementById("amount").value);
+	amount = getNormalSum($("#amount").val());
 
-	rate = getNormalSum(document.getElementById("rate").value);
+	rate = getNormalSum($("#rate").val());
 	normalRate = rate / 100;
 
-	interestReduceSumPercent = getNormalSum(readControlValueSafe("interestReduceSumPercent", "0"));
+	interestReduceSumPercent = getNormalSum(readControlValueSafe("#interestReduceSumPercent", "0"));
 
-	loanStartDate = getNormalDate(document.getElementById("loanStartDate").value);
-	firstPaymentDate = getNormalDate(document.getElementById("loanStartDate").value);
+	loanStartDate = getNormalDate($("#loanStartDate").val());
+	firstPaymentDate = getNormalDate($("#loanStartDate").val());
 	firstPaymentDate.setMonth(firstPaymentDate.getMonth() + 1);
 	firstPaymentDate.setDate(firstPaymentDate.getDate() + 19);
 }
 
 function readControlValueSafe(idControl, defaultValue) {
-	var result = defaultValue;
-	var control = document.getElementById(idControl);
-	if (control != null) {
-		result = control.value;
-	}
-	return result;
+	return $(idControl).val() ? $(idControl).val() : defaultValue;
 }
 
 function computeAndShowCommon(annuity, months) {
@@ -293,39 +288,6 @@ function createDirectLink() {
 	}
 	url = url.substr(0, url.length - 1);
 	document.getElementById("directLinkEx").value = encodeURI(url);
-}
-
-function setGetParameters() {
-	var params = getSearchParameters();
-	var isSet = false;
-	for (var p in params) {
-		if (params.hasOwnProperty(p)) {
-			var e = document.getElementById(p);
-			if (!e && p.indexOf("dynEr") >= 0) {
-				addEarlyRepaymentControls();
-				e = document.getElementById(p);
-			}
-			if (e != null) {
-				e.value = decodeURIComponent(params[p]);
-				e.checked = params[p] === "true";
-				if (p.indexOf("Date") >= 0) {
-					var dateStr = getNormalDate(e.value);
-					var dateControl = $("#dp" + p);
-					dateControl.datepicker({
-						autoclose: true,
-						language: "ru",
-						weekStart: 1
-					});
-					dateControl.datepicker('update', getFormattedDate(dateStr));
-				}
-				isSet = true;
-			}
-		}
-	}
-	if (isSet) {
-		computeAndShow();
-	}
-
 }
 
 function getSearchParameters() {
